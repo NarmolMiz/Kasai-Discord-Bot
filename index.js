@@ -7,7 +7,7 @@ client.on('ready', () => {
   client.user.setActivity(`En route sur ${client.guilds.size} serveurs`)
 });
 
-client.on('message', message => {
+client.on('message', async message => {
 	if (message.content === `${prefix}ping`) {
            const m = await message.channel.send("Ping?");
            m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
