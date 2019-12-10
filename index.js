@@ -8,9 +8,10 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (message.content.startsWith(${prefix}TEST)) {
-		console.log(`${message.author} use command : ${message.content}`)
-	})
+	if (message.content === `${prefix}ping`) {
+           const m = await message.channel.send("Ping?");
+           m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+           console.log('Used command : ping')
 });
 
 //--------------------------------------------------------
