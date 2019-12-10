@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	if (message.content.startsWith(${prefix}TEST)) {
-		console.log(`${message.author} use command : ${message.content})
+		console.log(`${message.author} use command : ${message.content}`)
 	}
 });
 
