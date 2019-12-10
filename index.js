@@ -7,6 +7,9 @@ client.on('ready', () => {
   client.user.setActivity(`En route sur ${client.guilds.size} serveurs`)
 });
 
+client.on('message', message => {
+	console.log(`${message.author.name} send ${message.content} !!`)
+}
 //--------------------------------------------------------
 
 client.login(process.env.TOKEN);
