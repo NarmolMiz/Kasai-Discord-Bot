@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	console.log(`${message.author.name} send ${message.content} !!`)
-}
+});
 //--------------------------------------------------------
 
 client.login(process.env.TOKEN);
