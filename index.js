@@ -8,7 +8,8 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	console.log(`${message.author.username} send ${message.content} !!`)
+	if (message.content.startsWith(${prefix}TEST))
+	     console.log(`${message.author} send (${message.content}) !!`)
 });
 //--------------------------------------------------------
 
