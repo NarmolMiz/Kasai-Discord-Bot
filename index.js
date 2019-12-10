@@ -8,9 +8,11 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (message.content.startsWith(${prefix}TEST))
-	     console.log(`${message.author} send (${message.content}) !!`)
+	if (message.content.startsWith(${prefix}TEST)) {
+		console.log(`${message.author} use command : (${message.content})
+	}
 });
+
 //--------------------------------------------------------
 
 client.login(process.env.TOKEN);
