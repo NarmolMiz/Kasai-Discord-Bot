@@ -8,7 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	console.log(`${message.author.name} send ${message.content} !!`)
+	console.log(`${message.author.username} send ${message.content} !!`)
 });
 //--------------------------------------------------------
 
