@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const db = require('quick.db');
 const client = new Discord.Client();
 const prefix = '/'
 
@@ -23,14 +24,21 @@ client.on('ready', () => {
 //--------------------------------------------------------
 
 client.on("message", (message) => {
-  if (message.content.startsWith(`${prefix}kick`)) {
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    let member = args[0];
-    let reason = args[1];
-    member.kick(reason).then((member) => {
-      message.channel.get('653993368405409831').send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
-    });
-  }
+
+  if (message.channel.type != 'text') return message.channel.send('Please use commands in the server !!')
+
+  db.fetchObject(`guildPrefix_${message.guild.id}`).then(i => {
+
+    let prefix;
+
+    if (i.text) {
+        prefix = i.text
+    } else {
+      prefix = '='
+    }
+
+  })
+
 });
 
 //----------------------------------------------
