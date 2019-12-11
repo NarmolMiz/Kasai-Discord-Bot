@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+var quickDb = require("quick.db")
 const db = require('quick.db');
 const client = new Discord.Client();
 const prefix = '/'
@@ -32,7 +33,7 @@ client.on("message", (message) => {
     let prefix;
 
     if (i.text) {
-        prefix = i.text
+      prefix = i.text
     } else {
       prefix = '='
     }
