@@ -1,6 +1,4 @@
 const Discord = require("discord.js");
-var quickDb = require("quick.db")
-const db = require('quick.db');
 const client = new Discord.Client();
 const prefix = '/'
 
@@ -26,22 +24,9 @@ client.on('ready', () => {
 
 client.on("message", (message) => {
 
-  if (message.channel.type != 'text') return message.channel.send('Please use commands in the server !!')
-
-  db.fetchObject(`guildPrefix_${message.guild.id}`).then(i => {
-
-    let prefix;
-
-    if (i.text) {
-      prefix = i.text
-    } else {
-      prefix = '='
-    }
-
-  })
+  if (message.content.startsWith(${ prefix }ban));
 
 });
-
 //----------------------------------------------
 
 client.login(process.env.TOKEN);
