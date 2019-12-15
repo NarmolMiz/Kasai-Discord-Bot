@@ -5,10 +5,14 @@ const prefix = '/'
 //-------------------------------------------------
 
 const activities_list = [
-  "with the /help command.",
-  "with the developers console",
-  "with some code",
-  "with JavaScript"
+  "For help, use the /help command.",
+  "Made by NarmolMiz#5543",
+  "With some code.",
+  "With JavaScript.",
+  "Only private.",
+  `Served ${client.users.size} users,`,
+  `In ${client.channels.size} channels,`,
+  `Of ${client.guilds.size} guilds.`
 ];
 
 //--------------------------------------------
@@ -16,7 +20,6 @@ const activities_list = [
 client.on('ready', () => {
 
   console.log(`Bot has been planted, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-  client.user.setActivity(`En route sur ${client.guilds.size} serveurs`)
 
   setInterval(() => {
     const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
@@ -24,6 +27,16 @@ client.on('ready', () => {
   }, 60000);
 });
 //--------------------------------------------------------
+
+client.on('guildMemberAdd', () => {
+  const embed = new RichEmbed()
+    .setTitle('Bienvenue sur ' + guild.name + guild.member + ' !!')
+    .setColor(0xFF0000)
+    .setDescription('Hello, this is a slick embed!');
+  message.channel.send(embed);
+})
+
+//--------------------------------------------------------------
 
 client.on("guildCreate", guild => {
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
